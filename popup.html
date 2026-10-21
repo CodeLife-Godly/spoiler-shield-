@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Spoiler Shield</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main>
+    <header>
+      <img src="icons/icon48.png" alt="" width="26" height="26">
+      <h1>Spoiler Shield</h1>
+      <label class="master">
+        <span id="masterLabel">On</span>
+        <input id="master" type="checkbox" role="switch" aria-label="Spoiler Shield on or off">
+      </label>
+    </header>
+
+    <section class="page" aria-labelledby="pageTitle">
+      <h2 id="pageTitle">This page</h2>
+      <p id="pageStatus">Checking…</p>
+      <button id="revealAll" class="text-btn" type="button" hidden>Reveal everything</button>
+      <label class="row" id="siteRow" hidden>
+        <span><b>Filter this site</b><small id="siteName"></small></span>
+        <input id="siteToggle" type="checkbox" role="switch">
+      </label>
+    </section>
+
+    <section aria-labelledby="gtaTitle">
+      <label class="row">
+        <span>
+          <b id="gtaTitle">GTA VI</b>
+          <small>Covers GTA 6, GTA VI and Grand Theft Auto VI.</small>
+        </span>
+        <input id="gtaToggle" type="checkbox" role="switch" aria-labelledby="gtaTitle">
+      </label>
+    </section>
+
+    <section aria-labelledby="kwTitle">
+      <h2 id="kwTitle">Your keywords</h2>
+      <form id="keywordForm">
+        <input id="keywordInput" type="text" maxlength="60" autocomplete="off"
+               placeholder="Add a keyword" aria-label="Add keywords">
+        <button type="submit">Add</button>
+      </form>
+      <ul id="keywordList" class="bars"></ul>
+      <p class="note">Whole words only, ignoring case. Separate several with commas.</p>
+    </section>
+
+    <section aria-labelledby="modeTitle">
+      <h2 id="modeTitle">When something matches</h2>
+      <div class="segmented" role="radiogroup" aria-labelledby="modeTitle">
+        <label><input type="radio" name="mode" value="cover"><span>Blur it</span></label>
+        <label><input type="radio" name="mode" value="hide"><span>Remove it</span></label>
+      </div>
+      <p class="note" id="modeHint"></p>
+    </section>
+
+    <div id="status" role="status" aria-live="polite"></div>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>
